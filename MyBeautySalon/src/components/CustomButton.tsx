@@ -9,8 +9,7 @@ type Props = {
 export default function CustomButton({title, onPress, variant = "primary"}: Props){
 const styles = getStyles(variant);
 
-    return
-    (
+    return(
         <View>
 
             <TouchableOpacity style={styles.button} onPress={onPress}>
@@ -28,7 +27,9 @@ const getStyles = ( variant: 'primary' | 'secondary' | 'tertiary') =>
             borderColor: "#000",
             borderRadius: 6,
             padding: 12,
-            backgroundColor: variant === "primary" ? 'pink' : 'red'
+            backgroundColor: variant === "primary" ? '#523954' :
+                                variant === "secondary" ? '#E3DBDB' :
+                                '#dfdff7' 
         },
         buttonTitle:{
             color: 'white',
