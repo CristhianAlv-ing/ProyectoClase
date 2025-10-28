@@ -1,6 +1,6 @@
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { useState } from "react";
-import { Button, Text, TextInput, Touchable, TouchableOpacity, View } from "react-native";
+import { Button, Text, TextInput, Touchable, TouchableOpacity, View, StyleSheet } from "react-native";
 
 type Props = {
     type?: 'text' | 'email' | 'password' | 'number';
@@ -16,9 +16,9 @@ export default function CustomInput ({type = "text", required, value, placeholde
                     type === 'password' ? 'lock-closed-outline' : 'text-fields'
     return( 
         //wrapper
-        <View>
+        <View style={styles.wrapper}>
             //inputContainer
-            <View>
+            <View style ={styles.inputContainer}>
                 <MaterialIcons name={icon as any} size={20} color="#000000" />
                 <TextInput 
                 placeholder={placeholder}
@@ -26,6 +26,7 @@ export default function CustomInput ({type = "text", required, value, placeholde
                 onChangeText={onChange}
                 onBlur={()=>{}}
                 secureTextEntry={isSecureText}
+                style={styles.input}
                 />
                 
                 <TouchableOpacity
@@ -35,7 +36,6 @@ export default function CustomInput ({type = "text", required, value, placeholde
                         }
                     }
                 >
-                    <Text>Icon Button</Text>
                     <Ionicons name={isSecureText ? 'eye' : 'eye-off'} size={22} />
                 </TouchableOpacity>
             </View>
@@ -43,3 +43,27 @@ export default function CustomInput ({type = "text", required, value, placeholde
         
     )
 }
+
+const styles = StyleSheet.create({
+    wrapper: {
+        padding: 15,
+    },
+    //Distribución de Componentes
+    inputContainer: {
+        flexDirection: 'row',
+        
+        //Estilización de Input
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 8,
+        paddingHorizontal: 13,
+        backgroundColor: '#f9f9f9',
+        width:'80%',
+    },
+        input: {
+            //Agregando espacio al componente input nativo
+            paddingVertical: 10,
+            paddingHorizontal: 15,
+        }
+})
