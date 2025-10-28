@@ -17,7 +17,6 @@ export default function CustomInput ({type = "text", required, value, placeholde
     return( 
         //wrapper
         <View style={styles.wrapper}>
-            //inputContainer
             <View style ={styles.inputContainer}>
                 <MaterialIcons name={icon as any} size={20} color="#000000" />
                 <TextInput 
